@@ -30,9 +30,33 @@ class DatabaseHelper {
     );
   }
 
+//Lista de Resultados
   Future<List<Map<String, dynamic>>> getMateriaMapList() async {
     Database? db = await this.db;
     final List<Map<String, dynamic>> result = await db!.query(materiasTable);
+    return result;
+  }
+
+  //Inseção de dados
+  Future<int> insertMateria(Map<String, dynamic> materia) async {
+    Database? db = await this.db;
+    final int result = await db!.insert(materiasTable, materia);
+    return result;
+  }
+
+  //Update dados
+  Future<int> updateMateria(Map<String, dynamic> materia) async {
+    Database? db = await this.db;
+    final int result = await db!.update(materiasTable, materia,
+        where: "$mId=?", whereArgs: [materia[mId]]);
+    return result;
+  }
+
+  //Apagar dados
+  Future<int> deleteMateria(int id) async {
+    Database? db = await this.db;
+    final int result =
+        await db!.delete(materiasTable, where: "$mId=?", whereArgs: [id]);
     return result;
   }
 }
