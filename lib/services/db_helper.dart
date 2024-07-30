@@ -9,7 +9,7 @@ class DatabaseHelper {
   DatabaseHelper._instance();
   final String materiasTable = "materia_table";
   final String mId = "id";
-  final String mMateria = "materia";
+  final String mDisciplina = "disciplina";
   final String mNota = "nota";
 
   Future<Database?> get db async {
@@ -25,7 +25,7 @@ class DatabaseHelper {
       version: 1,
       onCreate: (db, version) => {
         db.execute(
-            "CREATE TABLE $materiasTable($mId INTEGER PRIMARY KEY AUTOINCREMENT, $mMateria TEXT, $mNota INTEGER)")
+            "CREATE TABLE $materiasTable($mId INTEGER PRIMARY KEY AUTOINCREMENT, $mDisciplina TEXT, $mNota INTEGER)")
       },
     );
   }
