@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return ListTile(
           title: Text(materias[index].disciplina),
           subtitle: Text(materias[index].nota.toString()),
-          tileColor: materias[index].nota < 5? Colors. red : Colors.green,
+          tileColor: materias[index].nota < 5? Colors. red[100] : Colors.green[100],
           trailing: SizedBox(width: 100, child: Row(children: [
             IconButton(onPressed: () {
               _showFormDialog(materias[index]);
